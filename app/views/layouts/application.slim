@@ -10,9 +10,19 @@ html
   body
     nav
       ul.app-nav
-        li Home
+        li
+         = link_to "Home", root_path, class: "nav-link"
       ul.user-nav
-        li Sign In
-    p.notice= notice
-    p.alert= alert
-    = yield
+
+        - if user_signed_in?
+          li
+            = link_to "Sign Out", destroy_user_session_path, method: "delete", class: "user-nav-btn"
+        - else
+          li
+            = link_to "Sign In", new_user_session_path, class: "user-nav-btn"
+          li
+            = link_to "Sign Up", new_user_registration_path, class: "user-nav-btn"
+
+    = render 'layouts/messages'
+    main
+      = yield

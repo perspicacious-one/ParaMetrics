@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 # User devise for authentication
 gem 'devise'
+gem 'slim'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :production do
