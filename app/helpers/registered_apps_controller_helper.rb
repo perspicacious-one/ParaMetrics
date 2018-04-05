@@ -1,0 +1,2 @@
+module RegisteredAppsControllerHelper
+end
