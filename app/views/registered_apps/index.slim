@@ -1,0 +1,8 @@
+.container.list-container
+  h2
+    | Your Apps
+
+  - @apps.each do |app|
+    div.app-list-item
+      h4 = app.name
+      p.list-item-description = app.description

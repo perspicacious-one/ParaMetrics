@@ -9,7 +9,7 @@ require 'faker'
 
 15.times do
   begin
-    name = Faker::Hobbit.character
+    name = Faker::SiliconValley.unique.character
     User.create!(
     name:     name,
     email:    Faker::Internet.unique.free_email(name.split(' ').join('-')),
@@ -20,20 +20,25 @@ require 'faker'
   end
 end
 
+User.create!(
+  name: "Nelson",
+  email: "nelsondcraig@gmail.com",
+  password: "password"
+)
+
 users = User.all
 
-25.times do
+40.times do
     begin
-      title = [Faker::Hacker.unique.noun].join(' ')
       app = RegisteredApp.create!(
         user:   users.sample,
-        name:  title,
-        description:   Faker::SiliconValley.quote,
+        name:  Faker::App.name,
+        description:   Faker::SiliconValley.motto,
       )
     rescue Faker::UniqueGenerator::RetryLimitExceeded
       Faker::UniqueGenerator.clear
     end
   end
 
-p "#{RegisterApp.count} registered apps created"
+p "#{RegisteredApp.count} registered apps created"
 p "#{User.count} users created"
