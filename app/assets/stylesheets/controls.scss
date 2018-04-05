@@ -10,6 +10,10 @@
   font-size: 18px;
   text-decoration: none;
   color: white;
+  transition-duration: 0.5s;
+  &:hover {
+    background-color: $secondary;
+  }
 }
 
 @mixin txt-input {
