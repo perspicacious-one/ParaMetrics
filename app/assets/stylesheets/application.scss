@@ -1,0 +1,108 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import 'palette';
+@import 'controls';
+@import 'nav';
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+
+  .alert {
+    margin: auto;
+    width: 800px;
+    border-radius: 4px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 5px;
+    padding-right: 15px;
+
+    ul {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      font-weight: 500;
+    }
+  }
+
+  .alert-alert {
+    border: 1px solid $warning;
+    background-color: rgba(225, 88, 100, .2);
+  }
+  .alert-notice {
+    border: 1px solid $secondary;
+    background-color: rgba(144, 144, 149, .2);
+  }
+  .alert-success {
+    border: 1px solid $secondary;
+    background-color: rgba(50, 130, 132, 0.2);
+  }
+}
+
+main {
+  max-width: 900px;
+  min-height: 60vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    width: 600px;
+    padding: 15px 10px 20px 5px;
+    margin: auto;
+    display: block;
+    text-align: left;
+  }
+  form {
+    width: 600px;
+    display: block;
+    margin: auto;
+    align-self: center;
+    flex-grow: 1;
+
+    .field {
+      width: 100%;
+      margin: auto;
+      padding: 10px 0px 5px 0px;
+
+      input {
+        @include txt-input;
+      }
+
+      input[type=checkbox] {
+        @include chkbox;
+      }
+      label[for=user_remember_me] {
+        @include chkbox;
+      }
+    }
+
+    .actions {
+      input {
+        @include btn($primary);
+      }
+    }
+  }
+
+  a {
+    width: 600px;
+    margin: auto;
+  }
+}
