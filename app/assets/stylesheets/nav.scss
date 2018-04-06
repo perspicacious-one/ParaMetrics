@@ -42,7 +42,7 @@ nav {
     }
   }
   .user-nav {
-    align-items: flex-end;
+    align-items: center;
     justify-content: flex-end;
     flex-wrap: nowrap;
     min-width: 200px;
@@ -53,6 +53,20 @@ nav {
       display: inline;
 
       @include btn($primary);
+    }
+
+    .feather-user {
+      padding: 3px;
+      height: 100%;
+      stroke: $light;
+      fill: $light;
+      transition-duration: 0.5s;
+      margin: auto;
+
+      &:hover {
+        stroke: $secondary;
+        fill: $secondary;
+      }
     }
   }
 }

@@ -16,6 +16,7 @@
 @import 'palette';
 @import 'controls';
 @import 'nav';
+@import 'container';
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -60,22 +61,20 @@ main {
   max-width: 900px;
   min-height: 60vh;
   margin: auto;
+  padding-bottom: 40px;
   display: flex;
   flex-direction: column;
 
+  h2, form, a, .container-600 {
+    @include container-600;
+  }
+
   h2 {
-    width: 600px;
     padding: 15px 10px 20px 5px;
-    margin: auto;
-    display: block;
     text-align: left;
   }
   form {
-    width: 600px;
-    display: block;
-    margin: auto;
     align-self: center;
-    flex-grow: 1;
 
     .field {
       width: 100%;
@@ -101,8 +100,8 @@ main {
     }
   }
 
-  a {
-    width: 600px;
-    margin: auto;
+
+  .btn-warning {
+    @include btn($warning);
   }
 }
