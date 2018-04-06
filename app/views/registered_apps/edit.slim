@@ -1,17 +1,14 @@
-h2
- |Add New App
-hr
-= form_for [@app] do |f|
-  .field
-    = f.label "Name"
-    = f.text_field :name
-  .field
-    = f.label "Description"
-    = f.text_area :description, size: "60x12"
-  .actions
-    = f.submit "Save"
-
 div.container-600
-  h6
-    |Warning
-  = button_to "Delete", destroy_user_registered_app_path, method: => "DELETE", action: :destroy, class: "btn-warning"
+  h2
+   |Edit #{@app.name}
+  hr
+  = form_for ([current_user, @app]) do |f|
+    div.field
+      = f.label "Name"
+      = f.text_field :name
+    div.field
+      = f.label "Description"
+      = f.text_area :description, size: "60x12"
+    div.actions
+      = f.submit "Save"
+    br

@@ -17,9 +17,11 @@
 @import 'controls';
 @import 'nav';
 @import 'container';
+@import url('https://fonts.googleapis.com/css?family=Raleway:500,600');
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
   margin: 0;
 
   .alert {
@@ -65,14 +67,19 @@ main {
   display: flex;
   flex-direction: column;
 
-  h2, form, a, .container-600 {
+  .container-600 {
     @include container-600;
   }
 
-  h2 {
-    padding: 15px 10px 20px 5px;
-    text-align: left;
+  hr {
+    color: $dark;
+    margin: 15px 0 15px 0
   }
+  h2 {
+    text-align: left;
+    color: $dark;
+  }
+
   form {
     align-self: center;
 
@@ -84,7 +91,9 @@ main {
       input {
         @include txt-input;
       }
-
+      textarea {
+        @include txt-input;
+      }
       input[type=checkbox] {
         @include chkbox;
       }
@@ -96,12 +105,23 @@ main {
     .actions {
       input {
         @include btn($primary);
+        &:hover {
+          background-color: $secondary;
+        }
       }
     }
   }
 
-
+  .btn-standard {
+    @include btn($primary);
+    &:hover {
+      background-color: $secondary;
+    }
+  }
   .btn-warning {
     @include btn($warning);
+    &:hover {
+      background-color: $warning-faded;
+    }
   }
 }

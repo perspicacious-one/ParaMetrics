@@ -1,6 +1,8 @@
 class RegisteredAppsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @apps = RegisteredApp.belongs_to_current
+    @apps = RegisteredApp.belongs_to_current(current_user)
   end
 
   def show
@@ -10,8 +12,21 @@ class RegisteredAppsController < ApplicationController
   def edit
     @app = RegisteredApp.find(params[:id])
   end
+
+  def update
+    @app.assign_attributes(app_params)
+
+    if @app.save
+      flash[:notice] = "App was updated successfully."
+      redirect_to @app
+    else
+      flash.now[:alert] = "Unable to save changes. Please try again later."
+      render :edit
+    end
+  end
+
   def new
-    @app = RegisterApp.new
+    @app = RegisteredApp.new
   end
 
   def create
@@ -26,6 +41,14 @@ class RegisteredAppsController < ApplicationController
   end
 
   def destroy
+    @app = RegisteredApp.find(params[:id])
+    if @app.delete
+      flash[:notice] = "App was deleted successfully."
+      redirect_to  user_registered_apps_path
+    else
+      flash.now[:alert] = "Unable to delete. Please try again later."
+      render :show
+    end
   end
 
 

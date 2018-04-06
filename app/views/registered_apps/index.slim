@@ -1,8 +1,11 @@
-.container.list-container
-  h2
-    | Your Apps
 
+h2
+  | Your Apps
+hr
+div.list-container
   - @apps.each do |app|
     div.app-list-item
-      h4 = app.name
-      p.list-item-description = app.description
+      h4.list-item-header
+        = link_to app.name, user_registered_app_path(app), class: "list-item-link"
+      div.list-item-body
+        p.list-item-description = app.description

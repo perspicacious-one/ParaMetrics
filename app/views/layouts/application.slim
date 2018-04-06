@@ -3,8 +3,6 @@ html
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
     title Blocmetrics
-    = csrf_meta_tags
-    link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500|Open+Sans" rel="stylesheet" /
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
@@ -12,6 +10,9 @@ html
       ul.app-nav
         li
          = link_to "Home", root_path, class: "nav-link"
+        li
+         = link_to "My Apps", user_registered_apps_path, class: "nav-link"
+
       ul.user-nav
 
         - if user_signed_in?

@@ -1,7 +1,60 @@
+@import 'palette';
 
 @mixin container-600 {
   width: 600px;
   display: block;
   margin: auto;
   padding-top: 5px;
+}
+
+.app-list-item {
+
+  margin-bottom: 20px;
+  border: 1px solid $primary;
+  border-radius: 0px 0px 6px 6px;
+  box-shadow: 1px 1px 4px $muted;
+
+  .list-item-header {
+    background-color: $primary;
+    padding: 8px;
+    margin-top: 0px;
+    transition: background-color 0.4s, color 0.5s;
+
+    .list-item-link {
+      text-decoration: none;
+      color: $light;
+      font-weight: bold;
+    }
+
+    &:hover {
+      background-color: $secondary;
+      color: $dark;
+    }
+  }
+
+  .list-item-body {
+    padding: 0 8px 0 8px;
+  }
+}
+
+.controls-show {
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.container-show {
+  margin: 15px;
+  padding: 10px;
+  min-height: 200px;
+  border-radius: 4px;
+  background-color: $muted-faded;
+
+  * {
+    margin: 8px 10px 15px 10px;
+  }
+  h1, h2 {
+    color: $dark;
+  }
 }
