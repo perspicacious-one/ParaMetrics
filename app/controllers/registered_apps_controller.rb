@@ -2,7 +2,7 @@ class RegisteredAppsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @apps = RegisteredApp.belongs_to_current(current_user)
+    @apps = current_user.registered_apps
   end
 
   def show
