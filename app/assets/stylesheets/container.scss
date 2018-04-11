@@ -38,23 +38,38 @@
 }
 
 .controls-show {
-  padding: 15px;
+  padding: 5px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  align-self: baseline;
 }
 .container-show {
   margin: 15px;
   padding: 10px;
-  min-height: 200px;
+  min-height: 150px;
   border-radius: 4px;
   background-color: $muted-faded;
 
   * {
-    margin: 8px 10px 15px 10px;
+    margin: 8px 10px 5px 10px;
   }
   h1, h2 {
     color: $dark;
+  }
+}
+.event-list {
+  display: inline-block;
+  padding: 15px;
+  .event-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 15px 8px 15px;
+    box-shadow: 1px 1px 3px $light;
+    margin-bottom: 8px;
+    box-sizing: border-box;
   }
 }

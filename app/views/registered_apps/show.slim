@@ -1,8 +1,16 @@
+div
+  div.container-show
+    h1 = @app.name
+    p = @app.description
+    div.controls-show
+      = link_to "Edit", edit_user_registered_app_path, class: "btn-standard"
+      = button_to "Delete", user_registered_app_path, method: "delete", data: {confirm: "Are you sure you want to delete this registered app?"}, class: "btn-warning"
 
-div.container-show
-  h1 = @app.name
-  p = @app.description
-
-div.controls-show
-  = link_to "Edit", edit_user_registered_app_path, class: "btn-standard"
-  = button_to "Delete", user_registered_app_path, method: "delete", data: {confirm: "Are you sure you want to delete this registered app?"}, class: "btn-warning"
+  div.event-list
+    h2
+      |Events
+    hr
+    = @events.each do |event|
+      div.event-item
+        h4.list-item-header = event.name
+        small = event.created_at

@@ -40,5 +40,18 @@ users = User.all
     end
   end
 
-p "#{RegisteredApp.count} registered apps created"
+apps = RegisteredApp.all
+
+80.times do
+  begin
+    event = Event.create!(
+      registered_app: apps.sample,
+      name: Faker::App.name,
+    )
+  rescue
+  end
+end
+
 p "#{User.count} users created"
+p "#{RegisteredApp.count} registered apps created"
+p "#{Event.count} events created"

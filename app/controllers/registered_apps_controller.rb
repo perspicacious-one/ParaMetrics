@@ -7,6 +7,7 @@ class RegisteredAppsController < ApplicationController
 
   def show
     @app = RegisteredApp.find(params[:id])
+    @events = @app.events
   end
 
   def edit
