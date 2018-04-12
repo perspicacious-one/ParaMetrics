@@ -7,10 +7,13 @@ div
       = button_to "Delete", user_registered_app_path, method: "delete", data: {confirm: "Are you sure you want to delete this registered app?"}, class: "btn-warning"
 
   div.event-list
-    h2
-      |Events
+    div.event-list-header
+      h2
+        |Events
+      small
+        b= "Count: #{@app.events.count}"
     hr
-    = @events.each do |event|
+    - @events.each_pair do |key, value|
       div.event-item
-        h4.list-item-header = event.name
-        small = event.created_at
+        h4.list-item-header = key.to_s
+        small = "Count: #{value.count}"

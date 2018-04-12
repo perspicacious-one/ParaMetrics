@@ -60,15 +60,28 @@
   }
 }
 .event-list {
-  display: inline-block;
-  padding: 15px;
+  max-width: 90%;
+  margin: auto;
+  padding-top: 15px;
+
+  .event-list-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 12px 5px 12px;
+
+    * {
+      margin: 5px;
+    }
+  }
   .event-item {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 15px 8px 15px;
-    box-shadow: 1px 1px 3px $light;
+    padding: 4px 15px 4px 15px;
+    box-shadow: 1px 1px 3px $dark-faded;
     margin-bottom: 8px;
     box-sizing: border-box;
   }

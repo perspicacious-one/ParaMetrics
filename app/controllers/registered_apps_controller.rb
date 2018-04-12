@@ -7,7 +7,7 @@ class RegisteredAppsController < ApplicationController
 
   def show
     @app = RegisteredApp.find(params[:id])
-    @events = @app.events
+    @events = @app.events.group_by(&:name)
   end
 
   def edit

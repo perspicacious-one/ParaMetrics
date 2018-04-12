@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-15.times do
+12.times do
   begin
     name = Faker::SiliconValley.unique.character
     User.create!(
@@ -28,7 +28,19 @@ User.create!(
 
 users = User.all
 
-40.times do
+2.times do
+  begin
+    app = RegisteredApp.create!(
+      user:   users.last,
+      name:  Faker::App.name,
+      description:   Faker::SiliconValley.motto,
+    )
+  rescue Faker::UniqueGenerator::RetryLimitExceeded
+    Faker::UniqueGenerator.clear
+  end
+end
+
+25.times do
     begin
       app = RegisteredApp.create!(
         user:   users.sample,
@@ -46,7 +58,7 @@ apps = RegisteredApp.all
   begin
     event = Event.create!(
       registered_app: apps.sample,
-      name: Faker::App.name,
+      name: Faker::Space.planet,
     )
   rescue
   end
