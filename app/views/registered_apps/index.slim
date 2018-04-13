@@ -9,3 +9,5 @@ div.list-container
         = link_to app.name, user_registered_app_path(app), class: "list-item-link"
       div.list-item-body
         p.list-item-description = app.description
+div.controls-show
+  = link_to "Add",  new_user_registered_app_path, class: "btn-standard"

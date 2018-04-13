@@ -1,4 +1,5 @@
 class RegisteredAppsController < ApplicationController
+
   before_action :authenticate_user!
 
   def index
@@ -28,6 +29,7 @@ class RegisteredAppsController < ApplicationController
 
   def new
     @app = RegisteredApp.new
+    @user = current_user
   end
 
   def create
@@ -56,6 +58,6 @@ class RegisteredAppsController < ApplicationController
   private
 
   def app_params
-    params.require(:app).permit(:name, :description)
+    params.require(:app).permit(:name, :url, :description)
   end
 end

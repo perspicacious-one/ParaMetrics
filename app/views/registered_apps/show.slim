@@ -1,6 +1,7 @@
 div
   div.container-show
     h1 = @app.name
+    h2 = @app.url
     p = @app.description
     div.controls-show
       = link_to "Edit", edit_user_registered_app_path, class: "btn-standard"

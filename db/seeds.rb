@@ -42,9 +42,12 @@ end
 
 25.times do
     begin
+      name = Faker::App.unique.name
+      url = ["http://", name, ".com"].join('')
       app = RegisteredApp.create!(
         user:   users.sample,
-        name:  Faker::App.name,
+        name:  name,
+        url: url,
         description:   Faker::SiliconValley.motto,
       )
     rescue Faker::UniqueGenerator::RetryLimitExceeded
