@@ -3,11 +3,6 @@ h2
   | Your Apps
 hr
 div.list-container
-  - @apps.each do |app|
-    div.app-list-item
-      h4.list-item-header
-        = link_to app.name, user_registered_app_path(app), class: "list-item-link"
-      div.list-item-body
-        p.list-item-description = app.description
+  = render partial: 'shared/charts', collection: @apps, as: :app
 div.controls-show
   = link_to "Add",  new_user_registered_app_path, class: "btn-standard"

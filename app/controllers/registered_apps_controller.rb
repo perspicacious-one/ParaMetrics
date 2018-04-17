@@ -1,5 +1,5 @@
 class RegisteredAppsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:events_by_day, :events_by_name]
 
   def index
     @apps = current_user.registered_apps
@@ -51,7 +51,6 @@ class RegisteredAppsController < ApplicationController
       render :show
     end
   end
-
 
   private
 

@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-12.times do
+10.times do
   begin
     name = Faker::SiliconValley.unique.character
     User.create!(
@@ -40,7 +40,7 @@ users = User.all
   end
 end
 
-25.times do
+20.times do
     begin
       name = Faker::App.unique.name
       url = ["http://", name, ".com"].join('')
@@ -50,6 +50,7 @@ end
         url: url,
         description:   Faker::SiliconValley.motto,
       )
+      app.update_attribute(:created_at, rand(1.month .. 2.month).ago)
     rescue Faker::UniqueGenerator::RetryLimitExceeded
       Faker::UniqueGenerator.clear
     end
@@ -57,12 +58,13 @@ end
 
 apps = RegisteredApp.all
 
-80.times do
+100.times do
   begin
     event = Event.create!(
       registered_app: apps.sample,
       name: Faker::Space.planet,
     )
+    event.update_attribute(:created_at, rand(1.hour .. 1.month).ago)
   rescue
   end
 end

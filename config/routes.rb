@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :user
 
   resource :user do
-    resources :registered_apps
+    resources :registered_apps 
   end
 
   namespace :api, defaults: { format: :json } do

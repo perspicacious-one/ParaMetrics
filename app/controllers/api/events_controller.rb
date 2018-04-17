@@ -1,7 +1,7 @@
 class API::EventsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
-  before_action :set_access_control_headers
+  before_action :set_access_control_headers, only: [:create, :preflight]
 
   def create
     @registered_application = RegisteredApp.has_url(request.env['HTTP_ORIGIN'])
@@ -24,6 +24,8 @@ class API::EventsController < ApplicationController
   def preflight
     head 200
   end
+
+  
 
   private
 
