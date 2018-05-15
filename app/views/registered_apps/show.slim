@@ -1,0 +1,24 @@
+
+div
+  div.container-show
+    div.controls-show
+      = link_to "Edit", edit_user_registered_app_path, class: "btn-standard"
+      = button_to "Delete", user_registered_app_path, method: "delete", data: {confirm: "Are you sure you want to delete this registered app?"}, class: "btn-warning"
+    h1 = @app.name
+    h4 = @app.url
+    p = @app.description
+
+  div.event-list
+    div.event-general
+      h3 All Events
+      = pie_chart @app.events.group(:name).count, donut: true
+    / div.event-list-header
+    /   h2
+    /     |Events
+    /   small
+    /     b= "Count: #{@app.events.count}"
+    / hr
+    / - @events.each_pair do |key, value|
+    /   div.event-item
+    /     h4.list-item-header = key.to_s
+    /     small = "Count: #{value.count}"

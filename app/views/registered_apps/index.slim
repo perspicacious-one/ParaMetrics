@@ -1,0 +1,8 @@
+
+h2
+  | Your Apps
+hr
+div.list-container
+  = render partial: 'shared/charts', collection: @apps, as: :app
+div.controls-show
+  = link_to "Add",  new_user_registered_app_path, class: "btn-standard"

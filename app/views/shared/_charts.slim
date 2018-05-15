@@ -1,0 +1,11 @@
+
+
+div.app-list-item
+  div.item-details
+    h4.list-item-header
+      = link_to app.name, user_registered_app_path(app), class: "list-item-link"
+    div.list-item-body
+      p.list-item-description = app.description
+  div.app-chart
+    - if app.events.count >= 4
+      = area_chart app.events.group_by_day(:created_at).count, legend: false, points: false, discrete: true, max: app.events.count, height: "150px"

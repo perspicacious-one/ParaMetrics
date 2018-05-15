@@ -17,9 +17,11 @@
 @import 'controls';
 @import 'nav';
 @import 'container';
+@import url('https://fonts.googleapis.com/css?family=Raleway:500,600');
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
   margin: 0;
 
   .alert {
@@ -65,14 +67,19 @@ main {
   display: flex;
   flex-direction: column;
 
-  h2, form, a, .container-600 {
+  .container-600 {
     @include container-600;
   }
 
-  h2 {
-    padding: 15px 10px 20px 5px;
-    text-align: left;
+  hr {
+    color: $dark;
+    margin: 15px 0 15px 0
   }
+  h2 {
+    text-align: left;
+    color: $dark;
+  }
+
   form {
     align-self: center;
 
@@ -84,7 +91,9 @@ main {
       input {
         @include txt-input;
       }
-
+      textarea {
+        @include txt-input;
+      }
       input[type=checkbox] {
         @include chkbox;
       }
@@ -96,12 +105,118 @@ main {
     .actions {
       input {
         @include btn($primary);
+        &:hover {
+          background-color: $secondary;
+        }
       }
     }
   }
 
-
+  .btn-standard {
+    @include btn($primary);
+    &:hover {
+      background-color: $secondary;
+    }
+  }
   .btn-warning {
     @include btn($warning);
+    &:hover {
+      background-color: $warning-faded;
+    }
+  }
+}
+
+.app-list-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: 1px solid $primary;
+  border-radius: 0px 0px 6px 6px;
+  box-shadow: 1px 1px 4px $muted;
+  padding: 0;
+  margin: 5px 10px 20px 10px;
+
+  .item-details {
+    width: 100%;
+    align-self: flex-start;
+    .list-item-header {
+      background-color: $primary;
+      padding: 8px;
+      margin-top: 0px;
+      transition: background-color 0.4s, color 0.5s;
+
+      .list-item-link {
+        text-decoration: none;
+        color: $light;
+        font-weight: bold;
+      }
+
+      &:hover {
+        background-color: $secondary;
+        color: $dark;
+      }
+    }
+    .list-item-body {
+      padding: 0 8px 0 8px;
+    }
+  }
+
+  .app-chart {
+    flex-grow: 1;
+    width: 90%;
+    max-height: 150px;
+    align-self: flex-end;
+    overflow-y: hidden;
+  }
+
+}
+
+.controls-show {
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  align-self: baseline;
+}
+.container-show {
+  margin: 15px;
+  padding: 10px;
+  min-height: 150px;
+  border-radius: 4px;
+  background-color: $muted-faded;
+
+  * {
+    margin: 8px 10px 5px 10px;
+  }
+  h1, h2 {
+    color: $dark;
+  }
+}
+.event-list {
+  max-width: 90%;
+  margin: auto;
+  padding-top: 15px;
+
+  .event-list-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 12px 5px 12px;
+
+    * {
+      margin: 5px;
+    }
+  }
+  .event-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 15px 4px 15px;
+    box-shadow: 1px 1px 3px $dark-faded;
+    margin-bottom: 8px;
+    box-sizing: border-box;
   }
 }

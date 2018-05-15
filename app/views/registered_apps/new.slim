@@ -1,0 +1,15 @@
+h2
+ |Add New App
+hr
+= form_for [@user, @app] do |f|
+  .field
+    = f.label "Name"
+    = f.text_field :name
+  .field
+    = f.label "url"
+    = f.text_field :url
+  .field
+    = f.label "Description"
+    = f.text_area :description, size: "60x8"
+  .actions
+    = f.submit "Save"
