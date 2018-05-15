@@ -1,9 +1,13 @@
 # README
 
-#### Details
 
-- rails (5.1.6)
-- sqlite3 (1.3.13)
+### Created With:
+* Rails 5.1.5
+* SQLlite3
+* Sass-Rails 5
+* Devise
+* Slim
+* Chartkick
 
 #### Snippets
 **AJAX Request Snippet**
