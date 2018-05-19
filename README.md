@@ -1,18 +1,31 @@
 # README
 
+An analytics service for tracking & visualizing events for users websites linked to the service.
 
 ### Created With:
 * Rails 5.1.5
-* SQLlite3
 * Sass-Rails 5
 * Devise
 * Slim
 * Chartkick
 
+### Getting Started
+
+1. Download or clone the repo. `git clome git@github.com:perspicacious-one/blocmetrics.git`
+
+2. navigate to the directory `cd blocmetrics`
+
+3. Run the database migrations `rails db:migrate`
+
+4. (Optional) Seed the database `rails db:seed`
+
+5. Run `rails s`
+
+
 #### Snippets
 **AJAX Request Snippet**
 
-```
+```javascript
 var blocmetrics = {};
 blocmetrics.report = function(eventName){
   var event = {event: { name: eventName }};

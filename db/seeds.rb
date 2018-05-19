@@ -20,11 +20,6 @@ require 'faker'
   end
 end
 
-User.create!(
-  name: "Nelson",
-  email: "nelsondcraig@gmail.com",
-  password: "password"
-)
 
 users = User.all
 
@@ -47,7 +42,7 @@ end
       app = RegisteredApp.create!(
         user:   users.sample,
         name:  name,
-        url: url,
+        url: url.downcase,
         description:   Faker::SiliconValley.motto,
       )
       app.update_attribute(:created_at, rand(1.month .. 2.month).ago)
