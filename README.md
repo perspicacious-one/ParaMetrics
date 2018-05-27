@@ -11,9 +11,9 @@ An analytics service for tracking & visualizing events for users websites linked
 
 ### Getting Started
 
-1. Download or clone the repo. `git clome git@github.com:perspicacious-one/blocmetrics.git`
+1. Download or clone the repo. `git clome git@github.com:perspicacious-one/parametrics.git`
 
-2. navigate to the directory `cd blocmetrics`
+2. navigate to the directory `cd parametrics`
 
 3. Run the database migrations `rails db:migrate`
 
@@ -26,8 +26,8 @@ An analytics service for tracking & visualizing events for users websites linked
 **AJAX Request Snippet**
 
 ```javascript
-var blocmetrics = {};
-blocmetrics.report = function(eventName){
+var parametrics = {};
+parametrics.report = function(eventName){
   var event = {event: { name: eventName }};
   var request = new XMLHttpRequest();
 
